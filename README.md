@@ -1,4 +1,8 @@
-# Learning about ![Webpack5](https://www.google.com/search?q=webpack+icon&rlz=1C5CHFA_enGB972GB972&tbm=isch&source=iu&ictx=1&vet=1&fir=OoC7KKePuDCfFM%252CO7xB4KEsvV1nLM%252C_%253BARltil2bMvIC-M%252CO7xB4KEsvV1nLM%252C_%253BJgCu3mVROfnVdM%252CyMKhjg2VeMMdGM%252C_%253BWR7HMs3Kb9E9NM%252C15ALbMfxbkN0TM%252C_%253BtobIcK8Bs0djsM%252CO7xB4KEsvV1nLM%252C_%253BnsnB7VKlB0ALwM%252Ci8jRIKoNktNjNM%252C_%253BuPiveBYY6rTqLM%252C6FnwDzvqyXfryM%252C_%253BzVDCxi3u7aTO3M%252CJ-sJfzmwPOkqzM%252C_%253Bz3jp-QXRbkZMFM%252ChmqqyZk-AqS2OM%252C_%253BsNDEHLWvrQNtYM%252CuK9KuFP54rlCVM%252C_%253BABO2Fm6BM1nq3M%252CClnXPwYowgUYSM%252C_%253BT1PsTTVbEviFvM%252CO7xB4KEsvV1nLM%252C_%253BBr9O6lz_Hb4IFM%252Csi5_WWMFkdc-pM%252C_%253BDK8-FMuSXl2mdM%252CD0YXRM0g_SMpAM%252C_&usg=AI4_-kTROigEu9WtoRxAs_DXYacRHgWFBg&sa=X&ved=2ahUKEwjpyOCwoIz5AhXqQvEDHQU3Bb4Q9QF6BAgDEAE#imgrc=OoC7KKePuDCfFM) :grin:
+<div style="text-align:center">
+<img src="./readme/webpack.png" alt="webpack-logo" width="200"/>
+</div>
+
+# Learning about Webpack5 :grin:
 
 ## Table of Contents
 
