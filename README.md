@@ -1,5 +1,5 @@
 <div style="text-align:center">
-<img src="./readme/webpack.png" alt="webpack-logo" width="200"/>
+<img src="./readme/webpack.png" alt="webpack-logo" width="400"/>
 </div>
 
 # Learning about Webpack5 :grin:
