@@ -44,6 +44,16 @@ Minification of the resulting webpack bundle
 #### Using `mini-css-extract-plugin`
 
 Some time ago we learnt how to import css inside our js files we did this through css loader and style loader. We want two bundles instead of one. This will allow our js bundle to be alot smaller. We can load several files in parallel. The following code will extract our CSS into a separate files and we can even specify the name of this file. To do this, we need to replace our `"style.loader"` in `/\.css$/` and dont forget to import `const MiniCssExtractPlugins = require("mini-css-extract-plugin");` - dont forget to install this by `npm install mini-css-extract-plugin --save-dev` next do `plugins: [new MiniCssExtractPlugins({filename: styles.css})]` then once you run webpack you will see the styles.css file in your dist folder. Next make sure to include this in your index.js file ` <link rel="stylesheet" href="./dist/styles.css"/>`
-`
 
-#### Using mini-css-extract-plugin
+#### Browser caching and how webpack can help us do that
+
+- Everytime you load a webpage you download all that webpages assets. Every time you load the page, the browser downloads all those assets. This can make the website take a long time to load especially on mobile or if there are alot of assets. Customers will need to await several minutes until the page is ready. The solution to this problem is called browser caching. If the file doesnt change between page reloads then your browser can save it to a specific place known as **_cache_**. When you reopen this page the browser download this file again. It will take this file from cache. This technique helps save a lot of time and traffic. However this may lead to another issue. What if you fixed a bug on your website and your javascript file has been changed? If the browser always takes this file from cache, your customers will never get the new version. Therefore, we need a mechanism for updating the cache. One of the most popular approaches is creating a new file with a new name each time you make a change. Browsers remember files like names therefore if the name changes, browsers will download the new version. Note: it does not mean that we need to change the file name every time we change our code. Webpack can do this automatically. One of the best practices is to add MD5# to the name of the file. It will generate a new file name only if the filename has some change inside.
+  `filename: "bundle.[contenthash]js"`. Now we have two bundles in the `'./dist'` folder.
+
+  <img src="./readme/two-bundles.png" alt="Now two bundles" width="200"/>
+
+  This sequence of MD5# stays the same if no files were changed but if changed the updates. If we were to add `let ten = 10;` to our index.js file then run webpack again and look at the difference we would get
+
+    <img src="./readme/another-bundle.png" alt="Now another bundles" width="200"/>
+
+Also needed for `filename: "styles.[contenthash]css"`
