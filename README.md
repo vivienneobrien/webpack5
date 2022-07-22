@@ -47,7 +47,9 @@ Some time ago we learnt how to import css inside our js files we did this throug
 
 #### Browser caching and how webpack can help us do that
 
-- Everytime you load a webpage you download all that webpages assets. Every time you load the page, the browser downloads all those assets. This can make the website take a long time to load especially on mobile or if there are alot of assets. Customers will need to await several minutes until the page is ready. The solution to this problem is called browser caching. If the file doesnt change between page reloads then your browser can save it to a specific place known as **_cache_**. When you reopen this page the browser download this file again. It will take this file from cache. This technique helps save a lot of time and traffic. However this may lead to another issue. What if you fixed a bug on your website and your javascript file has been changed? If the browser always takes this file from cache, your customers will never get the new version. Therefore, we need a mechanism for updating the cache. One of the most popular approaches is creating a new file with a new name each time you make a change. Browsers remember files like names therefore if the name changes, browsers will download the new version. Note: it does not mean that we need to change the file name every time we change our code. Webpack can do this automatically. One of the best practices is to add MD5# to the name of the file. It will generate a new file name only if the filename has some change inside.
+- Every time you load a page, the browser downloads all its assets. This can make the website take a long time to load especially on mobile or if there are alot of assets. Customers will need to await several minutes until the page is ready. The solution to this problem is called browser caching. If the file doesnt change between page reloads then your browser can save it to a specific place known as **_cache_**.
+- When you reopen this page the browser download this file again. It will take this file from cache. This technique helps save a lot of time and traffic. However this may lead to another issue. What if you fixed a bug on your website and your javascript file has been changed? If the browser always takes this file from cache, your customers will never get the new version.
+- Therefore, we need a mechanism for updating the cache. One of the most popular approaches is creating a new file with a new name each time you make a change. Browsers remember files like names therefore if the name changes, browsers will download the new version. Note: it does not mean that we need to change the file name every time we change our code. Webpack can do this automatically. One of the best practices is to add MD5# to the name of the file. It will generate a new file name only if the filename has some change inside.
   `filename: "bundle.[contenthash]js"`. Now we have two bundles in the `'./dist'` folder.
 
   <img src="./readme/two-bundles.png" alt="Now two bundles" width="200"/>
@@ -57,3 +59,10 @@ Some time ago we learnt how to import css inside our js files we did this throug
     <img src="./readme/another-bundle.png" alt="Now another bundles" width="200"/>
 
 Also needed for `filename: "styles.[contenthash]css"`
+
+Now we will remove all the bundles from the dist folder before generating the new bundles. This is done using a plugin known as clean webpack plugin! Each time you run the build process clean, webpack plugin will clean the output dot path folder i.e. output.path is this folder `path: path.resolve(__dirname, "./dist")`
+When we say clean everytime we run webpack it will simple remove all the old bundles from the bundle folder. Make sure to install by `npm install clean-webpack-plugin --save-dev`. './dist' folder after installing
+
+   <img src="./readme/after-webpack-clean.png" alt="Dist folder after running webpack clean " width="200"/>
+
+It is possible to clean multiple folders using options in the plugins array.
