@@ -104,7 +104,7 @@ Here is a list of all [official webpack plugins]("https://webpack.js.org/plugins
 
 **_ Mode _**
 This means we do not want any built in optimisations: `mode: none`
-The 3 possible values we can put here are none, development and production. Comparing mode and bundle. Develope mode uses source maps by default.
+The 3 possible values we can put here are none, development and production. Comparing mode and bundle. Developer mode uses source maps by default.
 
 ```
 if (process.env.NODE_ENV === "production") {
