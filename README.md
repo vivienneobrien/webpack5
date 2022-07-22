@@ -29,8 +29,8 @@
 
 ### Webpack Plugins <a name="webpack-plugins"></a> :electric_plug:
 
-- Plugins are additional javascript libraries that do everything a loaders cannot do.
-- Plugins can also modify how the bundle themselves are created. For example uglify/SPlugin takes the bundle.js and minimises the contents to decrease the bundle size
+- Plugins are additional javascript libraries that do everything loaders cannot do.
+- Plugins can also modify how the bundle themselves are created. For example uglify/SPlugin takes the bundle.js and minimises the contents to decrease the bundle size.
 
 Minification of the resulting webpack bundle
 
@@ -73,7 +73,7 @@ You can use `clean-webpack-plugin` [clean-webpack-plugin](https://www.npmjs.com/
 ```
    new CleanWebpackPlugin({
      cleanOnceBeforeBuildPatterns: [
-          "**/*", // remove all files together no matter how nesting levels there are
+          "**/*", // remove all files together no matter how many nesting levels there are
           path.join(process.cwd(), "build/**/*"),
        ],
    }),
@@ -88,8 +88,8 @@ output: {
     path: path.resolve(__dirname, "./dist"),
     publicPath: "dist/",
     clean: {
-        dry: true, // which to remove
-        keep: /\.css/ // which to keep
+        dry: true,      // which to remove
+        keep: /\.css/   // which to keep
      }
 }
 ```
@@ -104,4 +104,13 @@ Here is a list of all [official webpack plugins]("https://webpack.js.org/plugins
 
 **_ Mode _**
 This means we do not want any built in optimisations: `mode: none`
-The 3 possible values we can put here are none, development and production. Comparing mode and bundle.
+The 3 possible values we can put here are none, development and production. Comparing mode and bundle. Develope mode uses source maps by default.
+
+```
+if (process.env.NODE_ENV === "production") {
+      console.log("Production mode");
+  }
+else if (process.env.NODE_ENV === "development") {
+  console.log("Development mode");
+}
+```
