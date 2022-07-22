@@ -66,3 +66,28 @@ When we say clean everytime we run webpack it will simple remove all the old bun
    <img src="./readme/after-webpack-clean.png" alt="Dist folder after running webpack clean " width="200"/>
 
 It is possible to clean multiple folders using options in the plugins array.
+
+You can use `clean-webpack-plugin` [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
+
+```
+   new CleanWebpackPlugin({
+     cleanOnceBeforeBuildPatterns: [
+          "**/*", // remove all files together no matter how nesting levels there are
+          path.join(process.cwd(), "build/**/*"),
+       ],
+   }),
+```
+
+or `output.clean` [output.clean](https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder)
+but only has two properties:
+
+```output: {
+           filename: "bundle.[contenthash]js",
+           path: path.resolve(__dirname, "./dist"),
+           publicPath: "dist/",
+           clean: {
+           dry: true, // which to remove
+           keep: /\.css/ // which to keep
+           }
+     }
+```
