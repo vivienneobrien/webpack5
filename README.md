@@ -26,3 +26,13 @@
 
 - Plugins are additional javascript libraries that do everything a loaders cannot do.
 - Plugins can also modify how the bundle themselves are created. For example uglify/SPlugin takes the bundle.js and minimises the contents to decrease the bundle size
+
+Minification of the resulting webpack bundle
+
+![Size of bundle size before babel](./readme/bundle_before_babel.png)
+
+`const TerserPlugin = require("terser-webpack-plugin");`
+
+` plugins: [new TerserPlugin()]`
+
+![Size of bundle size after babel](./readme/bundle_after_babel.png)
