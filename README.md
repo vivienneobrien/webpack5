@@ -10,7 +10,7 @@
 2. [Loaders](#loaders)
 3. [Webpack Plugins](#webpack-plugins)
 
-### Asset Modules <a name="asset-modules"></a>
+### Asset Modules <a name="asset-modules"></a> :atom:
 
 **asset/resource**: Generates a new file output for every file in the output directory for each of your assets and exports the url to that file. Use this one when importing large files
 
@@ -41,5 +41,9 @@ Minification of the resulting webpack bundle
 
 <img src="./readme/bundle_after_babel.png" alt="Size of bundle size after babel" width="200"/>
 
+#### Using `mini-css-extract-plugin`
+
 Some time ago we learnt how to import css inside our js files we did this through css loader and style loader. We want two bundles instead of one. This will allow our js bundle to be alot smaller. We can load several files in parallel. The following code will extract our CSS into a separate files and we can even specify the name of this file. To do this, we need to replace our `"style.loader"` in `/\.css$/` and dont forget to import `const MiniCssExtractPlugins = require("mini-css-extract-plugin");` - dont forget to install this by `npm install mini-css-extract-plugin --save-dev` next do `plugins: [new MiniCssExtractPlugins({filename: styles.css})]` then once you run webpack you will see the styles.css file in your dist folder. Next make sure to include this in your index.js file ` <link rel="stylesheet" href="./dist/styles.css"/>`
 `
+
+#### Using mini-css-extract-plugin
