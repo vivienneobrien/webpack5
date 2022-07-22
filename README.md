@@ -29,10 +29,10 @@
 
 Minification of the resulting webpack bundle
 
-![Size of bundle size before babel](./readme/bundle_before_babel.png)
+<img src="./readme/bundle_before_babel.png" alt="Size of bundle size before babel" width="200"/>
 
 `const TerserPlugin = require("terser-webpack-plugin");`
 
 ` plugins: [new TerserPlugin()]`
 
-![Size of bundle size after babel](./readme/bundle_after_babel.png)
+<img src="./readme/bundle_after_babel.png" alt="Size of bundle size after babel" width="200"/>
