@@ -6,9 +6,10 @@
 
 ## Table of Contents
 
-1. [Asset Modules](#asset-modules)
-2. [Loaders](#loaders)
-3. [Webpack Plugins](#webpack-plugins)
+1. [Asset Modules](#asset-modules) :atom:
+2. [Loaders](#loaders) :cd:
+3. [Webpack Plugins](#webpack-plugins) :electric_plug:
+4. [Production versus Development Builds](#prod-versus-dev-builds) :bricks:
 
 ### Asset Modules <a name="asset-modules"></a> :atom:
 
@@ -81,13 +82,26 @@ You can use `clean-webpack-plugin` [clean-webpack-plugin](https://www.npmjs.com/
 or `output.clean` [output.clean](https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder)
 but only has two properties:
 
-```output: {
-           filename: "bundle.[contenthash]js",
-           path: path.resolve(__dirname, "./dist"),
-           publicPath: "dist/",
-           clean: {
-           dry: true, // which to remove
-           keep: /\.css/ // which to keep
-           }
-     }
 ```
+output: {
+    filename: "bundle.[contenthash]js",
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "dist/",
+    clean: {
+        dry: true, // which to remove
+        keep: /\.css/ // which to keep
+     }
+}
+```
+
+Page will not upload babel from index.js unless it is the same name as what is in the './dist' folder. We can not manually change the babel.base64code.js everytime. **_Webpack has a special plugin that updates the names of our bundles._** This plug in is called `html-webpack-plugin`. Install using `npm install html-webpack-plugin --save-dev`. All the options you can change using [html-webpack-plugin]("https://webpack.js.org/plugins/html-webpack-plugin/"). It allows you to change title, description, subfolder etc instead of './dist'.
+
+Here is a list of all [official webpack plugins]("https://webpack.js.org/plugins/")
+
+### Production Versus Development Builds <a name="prod-versus-dev-builds"></a> :bricks:
+
+- Prod builds require different set up than development builds. In production we want our builds to be as fast as possible and our bundles to be as small as possible. In dev we wants as much information as possible like source maps etc. How do we make our webpack config serve both use cases?
+
+**_ Mode _**
+This means we do not want any built in optimisations: `mode: none`
+The 3 possible values we can put here are none, development and production. Comparing mode and bundle.
