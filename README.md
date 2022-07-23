@@ -30,7 +30,7 @@
 ### Webpack Plugins <a name="webpack-plugins"></a> :electric_plug:
 
 - Plugins are additional javascript libraries that do everything loaders cannot do.
-- Plugins can also modify how the bundle themselves are created. For example uglify/SPlugin takes the bundle.js and minimises the contents to decrease the bundle size.
+- Plugins can also modify how the bundle themselves are created. For example uglify/SPlugin takes the `bundle.js` and minimises the contents to decrease the bundle size.
 
 Minification of the resulting webpack bundle
 
@@ -44,7 +44,7 @@ Minification of the resulting webpack bundle
 
 #### Using `mini-css-extract-plugin`
 
-Some time ago we learnt how to import css inside our js files we did this through css loader and style loader. We want two bundles instead of one. This will allow our js bundle to be alot smaller. We can load several files in parallel. The following code will extract our CSS into a separate files and we can even specify the name of this file. To do this, we need to replace our `"style.loader"` in `/\.css$/` and dont forget to import `const MiniCssExtractPlugins = require("mini-css-extract-plugin");` - dont forget to install this by `npm install mini-css-extract-plugin --save-dev` next do `plugins: [new MiniCssExtractPlugins({filename: styles.css})]` then once you run webpack you will see the styles.css file in your dist folder. Next make sure to include this in your index.js file ` <link rel="stylesheet" href="./dist/styles.css"/>`
+Some time ago we learnt how to import css inside our js files we did this through css loader and style loader. We want two bundles instead of one. This will allow our js bundle to be alot smaller. We can load several files in parallel. The following code will extract our CSS into a separate files and we can even specify the name of this file. To do this, we need to replace our `"style.loader"` in `/\.css$/` and dont forget to import `const MiniCssExtractPlugins = require("mini-css-extract-plugin");` - dont forget to install this by `npm install mini-css-extract-plugin --save-dev` next do `plugins: [new MiniCssExtractPlugins({filename: styles.css})]` then once you run webpack you will see the styles.css file in your dist folder. Next make sure to include this in your `index.js` file ` <link rel="stylesheet" href="./dist/styles.css"/>`
 
 #### Browser caching and how webpack can help us do that
 
@@ -55,7 +55,7 @@ Some time ago we learnt how to import css inside our js files we did this throug
 
   <img src="./readme/two-bundles.png" alt="Now two bundles" width="200"/>
 
-  This sequence of MD5# stays the same if no files were changed but if changed the updates. If we were to add `let ten = 10;` to our index.js file then run webpack again and look at the difference we would get
+  This sequence of MD5# stays the same if no files were changed but if changed the updates. If we were to add `let ten = 10;` to our `index.js` file then run webpack again and look at the difference we would get
 
     <img src="./readme/another-bundle.png" alt="Now another bundles" width="200"/>
 
@@ -94,7 +94,7 @@ output: {
 }
 ```
 
-Page will not upload babel from index.js unless it is the same name as what is in the './dist' folder. We can not manually change the babel.base64code.js everytime. **_Webpack has a special plugin that updates the names of our bundles._** This plug in is called `html-webpack-plugin`. Install using `npm install html-webpack-plugin --save-dev`. All the options you can change using [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/). It allows you to change title, description, subfolder etc instead of './dist'. In order for index.js to include `<script>` you need to include the following (all of these params are needed):
+Page will not upload babel from index.js unless it is the same name as what is in the './dist' folder. We can not manually change the babel.base64code.js everytime. **_Webpack has a special plugin that updates the names of our bundles._** This plug in is called `html-webpack-plugin`. Install using `npm install html-webpack-plugin --save-dev`. All the options you can change using [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/). It allows you to change title, description, subfolder etc instead of `'./dist'`. In order for index.js to include `<script>` you need to include the following (all of these params are needed):
 
 ```javascript
 new HtmlWebpackPlugin({
@@ -106,7 +106,7 @@ new HtmlWebpackPlugin({
 
 For some reason there was a bundle.js added to my global folder of this project. When I removed it the style.css base64 string started updating in my './dist' folder.
 
-The next problem I face is that even though I changed d publicPath: "./dist" to publicPath: "", it does not update in my index.html in my './dist' folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable. When I copy the path from './dist' it does not work but when I copy the global index.html path it does work but does not contain the css of my file. This is true despite `[contenthash]` working for css.
+The next problem I face is that even though I changed `publicPath: "./dist"`to `publicPath: ""`, it does not update in my index.html in my `'./dist'` folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable. When I copy the path from `'./dist'` it does not work but when I copy the global `index.html` path it does work but does not contain the css of my file. This is true despite `[contenthash]` working for css.
 
 Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/)
 
@@ -116,7 +116,7 @@ Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/
 
 **_ Mode _**
 This means we do not want any built in optimisations: `mode: none`
-The 3 possible values we can put here are none, development and production. Comparing mode and bundle. Developer mode uses source maps by default.
+The 3 possible values we can put here are `none`, `development` and `production`. Comparing mode and bundle. Developer mode uses source maps by default.
 
 ```javascript
 if (process.env.NODE_ENV === "production") {
