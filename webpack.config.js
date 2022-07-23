@@ -42,18 +42,12 @@ module.exports = {
   },
   plugins: [
     new TerserPlugin(),
-    new MiniCssExtractPlugin({ filename: "styles.[contenthash]css" }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [
-        "**/*", // remove all files together no matter how nesting levels there are
-        path.join(process.cwd(), "build/**/*"),
-      ],
-    }),
+    new MiniCssExtractPlugin({ filename: "styles.css" }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Hello World",
-      meta: {
-        description: "Some description",
-      },
+      filename: "index.html",
+      template: "index.html",
+      inject: true,
     }),
   ],
 };
