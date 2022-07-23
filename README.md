@@ -94,7 +94,7 @@ output: {
 }
 ```
 
-Page will not upload babel from index.js unless it is the same name as what is in the './dist' folder. We can not manually change the babel.base64code.js everytime. **_Webpack has a special plugin that updates the names of our bundles._** This plug in is called `html-webpack-plugin`. Install using `npm install html-webpack-plugin --save-dev`. All the options you can change using [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/). It allows you to change title, description, subfolder etc instead of './dist'. In order for index.js to include `<script> ` you need to include the following (all of these params are needed):
+Page will not upload babel from index.js unless it is the same name as what is in the './dist' folder. We can not manually change the babel.base64code.js everytime. **_Webpack has a special plugin that updates the names of our bundles._** This plug in is called `html-webpack-plugin`. Install using `npm install html-webpack-plugin --save-dev`. All the options you can change using [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/). It allows you to change title, description, subfolder etc instead of './dist'. In order for index.js to include `<script>` you need to include the following (all of these params are needed):
 
 ```javascript
 new HtmlWebpackPlugin({
@@ -106,7 +106,7 @@ new HtmlWebpackPlugin({
 
 For some reason there was a bundle.js added to my global folder of this project. When I removed it the style.css base64 string started updating in my './dist' folder.
 
-The next problem I face is that even though I changed d publicPath: "./dist" to publicPath: "", it does not update in my index.html in my './dist' folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable.
+The next problem I face is that even though I changed d publicPath: "./dist" to publicPath: "", it does not update in my index.html in my './dist' folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable. When I copy the path from './dist' it does not work but when I copy the global index.html path it does work but does not contain the css of my file. This is true despite `[contenthash]` working for css.
 
 Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/)
 
