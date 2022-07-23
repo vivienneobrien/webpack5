@@ -104,6 +104,10 @@ new HtmlWebpackPlugin({
 });
 ```
 
+For some reason there was a bundle.js added to my global folder of this project. When I removed it the style.css base64 string started updating in my './dist' folder.
+
+The next problem I face is that even though I changed d publicPath: "./dist" to publicPath: "", it does not update in my index.html in my './dist' folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable.
+
 Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/)
 
 ### Production Versus Development Builds <a name="prod-versus-dev-builds"></a> :bricks:

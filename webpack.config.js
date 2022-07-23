@@ -8,8 +8,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.[contenthash]js",
-    path: path.resolve(__dirname, "./dist"),
-    publicPath: "",
+    path: path.resolve(__dirname, "./dist"), // do not remove this or else everything will delete
+    publicPath: " ",
   },
   mode: "none",
   module: {
