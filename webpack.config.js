@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new TerserPlugin(),
-    new MiniCssExtractPlugin({ filename: "styles.css" }),
+    new MiniCssExtractPlugin({ filename: "styles.[contenthash]css" }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",

@@ -70,7 +70,7 @@ It is possible to clean multiple folders using options in the plugins array.
 
 You can use `clean-webpack-plugin` [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
 
-```
+```javascript
    new CleanWebpackPlugin({
      cleanOnceBeforeBuildPatterns: [
           "**/*", // remove all files together no matter how many nesting levels there are
@@ -82,7 +82,7 @@ You can use `clean-webpack-plugin` [clean-webpack-plugin](https://www.npmjs.com/
 or `output.clean` [output.clean](https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder)
 but only has two properties:
 
-```
+```javascript
 output: {
     filename: "bundle.[contenthash]js",
     path: path.resolve(__dirname, "./dist"),
@@ -114,11 +114,10 @@ Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/
 This means we do not want any built in optimisations: `mode: none`
 The 3 possible values we can put here are none, development and production. Comparing mode and bundle. Developer mode uses source maps by default.
 
-```
+```javascript
 if (process.env.NODE_ENV === "production") {
-      console.log("Production mode");
-  }
-else if (process.env.NODE_ENV === "development") {
+  console.log("Production mode");
+} else if (process.env.NODE_ENV === "development") {
   console.log("Development mode");
 }
 ```
