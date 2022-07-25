@@ -108,7 +108,16 @@ For some reason there was a bundle.js added to my global folder of this project.
 
 The next problem I face is that even though I changed `publicPath: "./dist"`to `publicPath: ""`, it does not update in my index.html in my `'./dist'` folder. And when I remove the index.html from my global folder, run webpack and then check the file, it causes multiple error and is unusable. When I copy the path from `'./dist'` it does not work but when I copy the global `index.html` path it does work but does not contain the css of my file. This is true despite `[contenthash]` working for css.
 
+These are the errors that come up
+
+<img src="./readme/error_one.png" alt="Error uno" width="200"/>
+<img src="./readme/error_two.png" alt="Error dos" width="200"/>
+
+All options for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#options)
+
 Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/)
+
+[Handlebars](https://handlebarsjs.com/) is a template engine for JS that allows you to separate the business logic from presentation. If you find yourself generating html inside your js then you probably need some sort of template. `hbs` is an extension for handlebar templates.
 
 ### Production Versus Development Builds <a name="prod-versus-dev-builds"></a> :bricks:
 
