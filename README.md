@@ -136,3 +136,30 @@ if (process.env.NODE_ENV === "production") {
   console.log("Development mode");
 }
 ```
+
+You can then have different webpack files for different environments i.e.`webpack.production.config.js` and `webpack.dev.config.js`. Make sure you change `mode`. Remove `[contenthash]` because we dont need the browser caching, TerserPlugin for dev because we dont need to minimise our code during development. Code minification takes time, it makes sense to minify the files in production when we need to optimise the page load time in order to improve the customer experience. Due to the same reason we also dont need to extract all of our css into a separate file during the development phase. It is mostly needed for production so we can safely remove `MiniCssExtractPlugin` - use style.loader instead. In small apps you wont notice a difference but in large apps you will. Since there is now two configs, it should be possible to load them separately. We create two different scripts in our package.json.
+
+npm webpack dev server
+
+`npm install webpack-dev-server --save-dev`
+
+We need to config options
+
+```javascript
+mode: 'development',
+devServer: {
+  port: 9000,
+  static: {
+    directory: path.resolve(__dirname, "./dist") // what should be served on that port
+  },
+  devMiddleware: {
+    index: 'index.html', // file that should be used as an index file
+    writeToDisk: true // by default webpack dev server generates files in memory and doesnt save them to dist, in this sitch dist is going to be empty even though the application is going to be available in the browser. this often causes **confusion**. Therefore we enable this option. Then webpack will explicitly write the generated files to the dist folder and you will be able to look at them if needed.
+  }
+}
+```
+
+Change npm script to point to webpack dev server from
+`webpack --config webpack.dev.config.js` to `webpack serve --config webpack.dev.config.js --hot`
+
+--hot enables hot modular replacement. It is a great feature provided by webpack-dev-server.
