@@ -206,4 +206,8 @@ entry: {
 
 ```
 
+How can we handle common dependencies between multiple bundles? You dont want every library needed per file to be included in every bundle for that file.
+
 ### Module Federation <a name="module-federation"></a> :atom_symbol:
+
+We will continue this section in a different repo under the name [module-federation](https://github.com/vivienneobrien/module-federation)
