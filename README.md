@@ -170,4 +170,15 @@ Change npm script to point to webpack dev server from
 
 Up until this point we have used webpack in order to take all our modules and put them together into a single bundle.js file. As a result this bundle contains all of our javascript code. This approach is widely used when makes single page applications. In some projects we need to have more than one html page. Especially if these pages are rendered on the server side. The most probably server sends different pages to the browser depending on the url that you write in the navigation bar. If you have two pages with same dependencies, we need to figure out how to handle this. We will learn how to split out js code into multiple bundles and create multiple html files for different pages of our website.
 
+In order for more than one html page to be rendered you need to change the entry point in our webpack config file. This is done by changing `javascript entry: './src/index.js'` to
+
+```javascript
+entry: {
+  'hello-world': './src/hello-world.js',
+  'kiwi': './src/kiwi.js'
+}
+```
+
+`[contenthash]` could name them differently but it would be nicer to be able to label them separately. We can tell webpack to use file names that we specified in our entry points. We just need to change `bundle.[contenthash].js` to `[name].[contenthash].js`. It is common to use **substitutions** such as name, content hash and ID in square brackets. You could use ID but we want a human readable name therefore we use name. You can also use multiple substitutions in the file name.
+
 ### Module Federation <a name="module-federation"></a> :atom_symbol:
