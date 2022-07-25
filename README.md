@@ -10,6 +10,8 @@
 2. [Loaders](#loaders) :cd:
 3. [Webpack Plugins](#webpack-plugins) :electric_plug:
 4. [Production versus Development Builds](#prod-versus-dev-builds) :bricks:
+5. [Multiple Page Applications](#multiple-page-applications) :books:
+6. [Module Federation](#module-federation) :atom_symbol:
 
 ### Asset Modules <a name="asset-modules"></a> :atom:
 
@@ -156,10 +158,16 @@ devServer: {
     index: 'index.html', // file that should be used as an index file
     writeToDisk: true // by default webpack dev server generates files in memory and doesnt save them to dist, in this sitch dist is going to be empty even though the application is going to be available in the browser. this often causes **confusion**. Therefore we enable this option. Then webpack will explicitly write the generated files to the dist folder and you will be able to look at them if needed.
   }
-}
+},
 ```
 
 Change npm script to point to webpack dev server from
 `webpack --config webpack.dev.config.js` to `webpack serve --config webpack.dev.config.js --hot`
 
 --hot enables hot modular replacement. It is a great feature provided by webpack-dev-server.
+
+### Multiple Page Applciations <a name="multiple-page-applications"></a> :books:
+
+Up until this point we have used webpack in order to take all our modules and put them together into a single bundle.js file. As a result this bundle contains all of our javascript code. This approach is widely used when makes single page applications. In some projects we need to have more than one html page. Especially if these pages are rendered on the server side. The most probably server sends different pages to the browser depending on the url that you write in the navigation bar. If you have two pages with same dependencies, we need to figure out how to handle this. We will learn how to split out js code into multiple bundles and create multiple html files for different pages of our website.
+
+### Module Federation <a name="module-federation"></a> :atom_symbol:
