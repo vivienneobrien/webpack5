@@ -181,4 +181,29 @@ entry: {
 
 `[contenthash]` could name them differently but it would be nicer to be able to label them separately. We can tell webpack to use file names that we specified in our entry points. We just need to change `bundle.[contenthash].js` to `[name].[contenthash].js`. It is common to use **substitutions** such as name, content hash and ID in square brackets. You could use ID but we want a human readable name therefore we use name. You can also use multiple substitutions in the file name.
 
+**Chunk** names are specified in the entry point object above.
+
+```javascript
+
+ new HtmlWebpackPlugin({
+      filename: "hello-world.html",
+      chunks ['hello-world'],
+      title: "Hello World"
+      template: "src/hello-world",
+      description: "hello world",
+      minify: false,
+      inject: true, // this isnt in the example but seems to be needed for me to update bundles
+    }),
+ new HtmlWebpackPlugin({
+      filename: "kiwi.html",
+      chunks ['kiwi'],
+      title: "Kiwi"
+      template: "src/kiwi",
+      description: "Kiwi",
+      minify: false,
+      inject: true, // this isnt in the example but seems to be needed for me to update bundles
+    }),
+
+```
+
 ### Module Federation <a name="module-federation"></a> :atom_symbol:
