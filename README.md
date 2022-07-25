@@ -113,6 +113,8 @@ These are the errors that come up
 <img src="./readme/error_one.png" alt="Error uno" width="200"/>
 <img src="./readme/error_two.png" alt="Error dos" width="200"/>
 
+All of a sudden my bundle base64 code is now not updating in my index.html global or local therefore my page is not loading
+
 All options for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#options)
 
 Here is a list of all [official webpack plugins](https://webpack.js.org/plugins/)
